@@ -125,7 +125,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: K_Strings.name.segue, sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let itemVC = segue.destination as! ItemViewController
+        if let index = tableView.indexPathForSelectedRow
+        {
+            itemVC.group = groups[index.row]
+        }
     }
 }

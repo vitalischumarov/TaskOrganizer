@@ -6,11 +6,13 @@ class ItemViewController: UIViewController {
     
     var items: [Item] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var group: Group!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        loadData()
     }
     
     @IBAction func addItem(_ sender: UIBarButtonItem)
@@ -22,9 +24,16 @@ class ItemViewController: UIViewController {
         let saveButton = UIAlertAction(title: "save", style: .default) { action in
             if let input = alert.textFields?.first?.text
             {
-                let newGroup = Item(context: self.context)
-                newGroup.title = input
-                self.items.append(newGroup)
+                print("text: \(input)")
+                let newItem = Item(context: self.context)
+                newItem.todo = input
+                newItem.done = false
+                newItem.title = self.group.title
+                self.items.append(newItem)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.viewDidLoad()
+                }
             }
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
@@ -33,6 +42,36 @@ class ItemViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func saveData(item: Item)
+    {
+        do
+        {
+            try context.save()
+            print("Daten wurden erfolgreich gespeichert.")
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.viewDidLoad()
+            }
+        } catch
+        {
+            print("das Speichern hat nicht funktioniert")
+        }
+    }
+    
+    func loadData()
+    {
+        do
+        {
+            items = try context.fetch(Item.fetchRequest())
+            print("Daten erfolgreich geladen.")
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } catch
+        {
+            print("error beim laden der Daten.")
+        }
+    }
 }
 
 extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
@@ -43,9 +82,8 @@ extension ItemViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K_Strings.name.itemCell, for: indexPath)
+        cell.textLabel?.text = items[indexPath.row].todo
         return cell
     }
-    
-    
 }
 
