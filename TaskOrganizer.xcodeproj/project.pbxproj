@@ -19,6 +19,7 @@
 		919FD7D02C6421FA008822D6 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FD7CC2C6421FA008822D6 /* Group+CoreDataProperties.swift */; };
 		919FD7D12C6421FA008822D6 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FD7CD2C6421FA008822D6 /* Item+CoreDataClass.swift */; };
 		919FD7D22C6421FA008822D6 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FD7CE2C6421FA008822D6 /* Item+CoreDataProperties.swift */; };
+		919FD7D42C643087008822D6 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FD7D32C643087008822D6 /* ItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		919FD7CC2C6421FA008822D6 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Group+CoreDataProperties.swift"; path = "../../Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		919FD7CD2C6421FA008822D6 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataClass.swift"; path = "../../Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		919FD7CE2C6421FA008822D6 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "../../Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		919FD7D32C643087008822D6 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		919FD7C82C641DC2008822D6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				919FD7D32C643087008822D6 /* ItemViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				919FD7AC2C641977008822D6 /* ViewController.swift in Sources */,
 				919FD7A82C641977008822D6 /* AppDelegate.swift in Sources */,
 				919FD7B22C641977008822D6 /* TaskOrganizer.xcdatamodeld in Sources */,
+				919FD7D42C643087008822D6 /* ItemViewController.swift in Sources */,
 				919FD7CA2C641EA0008822D6 /* K_Strings.swift in Sources */,
 				919FD7AA2C641977008822D6 /* SceneDelegate.swift in Sources */,
 			);
