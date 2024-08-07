@@ -25,7 +25,9 @@ class ViewController: UIViewController {
     @IBAction func addButton(_ sender: UIBarButtonItem)
     {
         let alert = UIAlertController(title: "Neue Gruppe erstellen", message: "", preferredStyle: .alert)
-        alert.addTextField()
+        alert.addTextField { textField in
+            textField.placeholder = "Enter new group"
+        }
         let saveButton = UIAlertAction(title: "save", style: .default) { action in
             
         }
